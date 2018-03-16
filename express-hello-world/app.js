@@ -4,7 +4,7 @@ const express = require('express')
 const app = express()
 // Routes
 app.get('/', (req, res) => {
-    res.send('hello world')
+    res.send({msg:'hello world'})
 })
 // Bootup
 app.listen(3000)
