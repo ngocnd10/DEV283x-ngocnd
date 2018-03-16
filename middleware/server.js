@@ -1,5 +1,10 @@
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser')
+const morgan = require('morgan')
+
+app.use(bodyParser.json())
+app.use(morgan('dev'))
 
 app.use((req, res, next) => {
     console.log(`${req.method}: ${req.url}`)
@@ -25,7 +30,8 @@ app.get('/accounts', (req, res, next) => {
     res.send({msg:'accounts'})
 })
 
-app.get('/transactions', (req, res) => {
+app.post('/transactions', (req, res) => {
+    console.log(req.body)
     res.send({msg:'transactions'})
 })
 
